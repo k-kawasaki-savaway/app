@@ -1,0 +1,8 @@
+<div id="header">
+<% if current_user %>
+	<%= link_to('Sign out', [ :destroy, :user_session], :method=> :delete, :class => 'signOut')%>
+	 | <%= link_to 'Edit Your Account', [:edit, :user_registration] %></p>
+	<p><%= link_to 'Select Apps', 'user_root' %></p>
+<%end%>
+
+</div>

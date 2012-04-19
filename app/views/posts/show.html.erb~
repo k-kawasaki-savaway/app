@@ -1,0 +1,25 @@
+<p>
+  <b>Title:</b><br>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= simple_format @post.body %>
+</p>
+
+<p>
+  <b>Auther's e-mail:</b><br>
+  <%= @post.user.email %>
+</p>
+<p>
+  <b>Created at:</b><br>
+  <%= @post.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+</p>
+
+<%= render 'comments/index' %>
+<%= render 'comments/form' %>
+<% if current_user.id == post.user_id %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+<%= link_to 'Back', posts_path %>

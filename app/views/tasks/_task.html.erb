@@ -1,0 +1,9 @@
+<tr>
+	<td><%= task.name %>
+	<td><%= task.due_date %>
+	<% if task.done? %>
+		<td><%= link_to 'UNDO', [:unfinish, task], :method => :put %></td>
+	<% else %>
+		<td><%= link_to 'DONE', [:finish, task], :method => :put %></td>
+	<% end %>
+</tr> 

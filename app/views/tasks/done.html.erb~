@@ -1,0 +1,12 @@
+<h1>Done tasks</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Due date</th>
+    <th></th>
+   </tr>
+  	<%= render @tasks %>
+</table>
+
+<%= link_to 'Back', :action => :index %>

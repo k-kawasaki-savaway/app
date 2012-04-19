@@ -1,0 +1,21 @@
+<h2>Comments</h2>
+ 
+<ul>
+  <% if @post.comments.size < 2 %>
+    <li>No comments.</li>
+  <% else %>
+    <% @post.comments.each do |comment| %>
+      <% unless comment.id.nil? %>
+        <li><%= comment.body %> <br>
+        		  by <%= comment.user.email %>  
+        		  at <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+        		  <%= if comment.user_id %>
+        				<%= link_to 'Edit', edit_post_comment_path(@post, comment) %> |
+        				<%= link_to 'Destroy', post_comment_path(@post, comment), confirm: 'Are you sure?', method: :delete %>
+        			<% end %>
+
+        </li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,22 @@
+<h1>Tasks</h1>
+
+<%= form_for @task do |f| %>
+<div class="field">
+		<%= f.label :name %><%= f.text_field :name %></div>
+		<div class="field"><%= f.label :due_date %><%= f.date_select :due_date %></div>
+		<div class="actions"><%= f.submit %><div>
+<% end %>
+<% if @tasks.size == 0 %>
+<h2>No tasks.</h2>
+<% end %>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Due date</th>
+    <th>DONE</th>
+   </tr>
+  	<%= render @tasks %>
+</table>
+<%= will_paginate(@tasks) %>
+
+<%= link_to 'Done tasks', :action=> :done %>

@@ -1,0 +1,31 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Created at</th>
+    <th>Auther</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.body %></td>
+    <td><%= post.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+    <td><%= post.user.email %></td>
+    <td><%= link_to 'Show', post %></td> 
+    <% if current_user.id == post.user_id %>
+    	<td><%= link_to 'Edit', edit_post_path(post) %></td>
+    	<td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate(@posts) %>
+<br />
+
+<%= link_to 'New Post', new_post_path %>
