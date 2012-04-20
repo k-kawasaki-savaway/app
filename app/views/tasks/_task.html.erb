@@ -6,4 +6,5 @@
 	<% else %>
 		<td><%= link_to 'DONE', [:finish, task], :method => :put %></td>
 	<% end %>
+		<td><%= link_to 'Destroy', task, :method => :delete %></td>
 </tr> 

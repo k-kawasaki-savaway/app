@@ -1,6 +1,3 @@
-<% unless task %>
-	<td>No tasks.<td>
-<% end %>
 <tr>
 	<td><%= task.name %>
 	<td><%= task.due_date %>
@@ -9,4 +6,5 @@
 	<% else %>
 		<td><%= link_to 'DONE', [:finish, task], :method => :put %></td>
 	<% end %>
+		<td><%= link_to 'Destroy', task, :method => :delete %></td>
 </tr> 

@@ -13,10 +13,10 @@
   <tr>
     <th>Task</th>
     <th>Due date</th>
-    <th>DONE</th>
+    <th></th>
+    <th></th>
    </tr>
   	<%= render @tasks %>
 </table>
 <%= will_paginate(@tasks) %>
-
 <%= link_to 'Done tasks', :action=> :done %>

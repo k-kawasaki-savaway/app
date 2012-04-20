@@ -12,13 +12,14 @@ App::Application.routes.draw do
   get 'tasks', :to => 'tasks#index'
   
   get 'select', :to => 'welcome#select', :as => 'user_root'
-	
+  
 	
 	
   resources :tasks, :only => [:index, :create] do
   	put :finish, :on => :member
   	put :unfinish, :on => :member
   	get :done, :on => :collection
+  	delete :destroy, :on => :member
 	end
 end
   # The priority is based upon order of creation:

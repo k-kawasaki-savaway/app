@@ -7,16 +7,17 @@
 		<div class="actions"><%= f.submit %><div>
 <% end %>
 <% if @tasks.size == 0 %>
-<h2>No tasks.</h2>
+<p>No tasks.</p>
 <% end %>
 <table>
   <tr>
     <th>Task</th>
     <th>Due date</th>
-    <th>DONE</th>
+    <th></th>
+    <th></th>
    </tr>
   	<%= render @tasks %>
 </table>
 <%= will_paginate(@tasks) %>
-
+<%= submit_tag "Destroy checked tasks"%>
 <%= link_to 'Done tasks', :action=> :done %>

@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   end
   
   def create
-  	@task = Task.new(params[:name])
+  	@task = Task.new(params[:task])
   	@task.user = current_user
   	if @task.save
   		redirect_to :tasks
@@ -34,4 +34,17 @@ class TasksController < ApplicationController
   	@task.update_attribute(:done, false)
   	redirect_to :back
   end
+	
+	def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to :back
+  end 
+  
+  def destroy_checked
+  	@tasks = Task.find(":checked_items")
+  	@tasks.destroy
+  	redirect_to :back
+  end
+  
 end
