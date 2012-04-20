@@ -1,5 +1,7 @@
 <h1>Done tasks</h1>
-
+<% if @tasks.size == 0 %>
+<p>No tasks done.</p>
+<% end %>
 <table>
   <tr>
     <th>Task</th>

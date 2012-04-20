@@ -10,5 +10,5 @@
    </tr>
   	<%= render @tasks %>
 </table>
-
+<%= will_paginate(@tasks) %>
 <%= link_to 'Back', :action => :index %>
